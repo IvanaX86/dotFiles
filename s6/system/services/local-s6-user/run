@@ -1,0 +1,10 @@
+#!/bin/execlineb -P
+envfile /etc/s6/config/user-services.conf
+importas -i UID UID
+importas -i USER USER
+export HOME /home/${USER}
+export XDG_RUNTIME_DIR /run/user/${UID}
+
+foreground { install -d -o ${USER} -g ${USER} /run/${USER} }
+foreground { install -d -o ${USER} -g ${USER} /run/${USER}/service }
+s6-setuidgid ${USER} exec s6-svscan -d 3 /run/${USER}/service

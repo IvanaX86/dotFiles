@@ -24,7 +24,8 @@ alias obsidian='obsidian --ozone-platform=wayland'
 alias vesktop='vesktop --ozone-platform=wayland'
 alias battery_level='echo "$(cat /sys/class/power_supply/BAT0/capacity)%"'
 alias s6-rc-user='s6-rc -l /run/${USER}/s6-rc'
-alias s6-update-user-rc='/home/${USER}/.scripts/s6/s6-update-user-rc.sh'
+alias s6-update-user-rc='/home/${USER}/Projects/system\ config/scripts/s6/s6-update-user-rc.sh'
+
 # Directory Aliases
 export S6sysdir='/etc/s6/adminsv/default/contents.d/'
 
@@ -63,6 +64,5 @@ autoload -U compinit && compinit
 precmd () { print -Pn "\e]2;%-3~\a"; }
 
 # Plugin Loading
-
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
